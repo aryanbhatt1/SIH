@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block extrastyle %}
+    <style>
+        body{
+            background: -webkit-linear-gradient(left, #26539b, #5975aa, #26539b);
+        }
+        .card {
+            margin:50px 0;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        }
+        .card-body{
+            padding:80px 180px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    {% include 'includes/header.html'%}
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p class="note note-info"><strong>Student Details</strong></p>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_first_name"  name = "first_name" class="form-control" />
+                                <label class="form-label" for="id_first_name">First name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_last_name" name = "last_name" class="form-control" />
+                                <label class="form-label" for="id_last_name">Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="email" id="id_email" name = "email" class="form-control" />
+                        <label class="form-label" for="id_email">Email address</label>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_phone_number" name = "phone_number" class="form-control" />
+                                <label class="form-label" for="id_last_name">Phone Number</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_alternate_phone_number" name = "a_phone_number" class="form-control" />
+                                <label class="form-label" for="id_alternate_phone_number">Alternate Phone Number</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <textarea class="form-control" id="id_Address1" name = "add1" rows="4"></textarea>
+                        <label class="form-label" for="id_Address1">H.No/Flat No</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <textarea class="form-control" id="id_Address2" name = "add2" rows="4"></textarea>
+                        <label class="form-label" for="id_Address2">Street/Locality</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="id_city" name = 'city' class="form-control" />
+                        <label class="form-label" for="id_city">City</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="id_state" name = 'state' class="form-control" />
+                        <label class="form-label" for="id_state">State</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="number" id="id_pin_code" name = 'pincode' class="form-control" />
+                        <label class="form-label" for="id_pin_code">Number input</label>
+                    </div>
+                    <p class="note note-info">
+                        <strong>Parent Details</strong>
+                    </p>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_father_first_name" name = 'ffname' class="form-control" />
+                                <label class="form-label" for="id_father_first_name">Father First name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_father_last_name" name = 'flname' class="form-control" />
+                                <label class="form-label" for="id_father_last_name">Father Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_mother_first_name" name = 'mfname' class="form-control" />
+                                <label class="form-label" for="id_mother_first_name">Mother First name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="id_mother_last_name" name = 'mlname' class="form-control" />
+                                <label class="form-label" for="id_mother_last_name">Mother Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="note note-info"><strong>Academic Details</strong></p>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="id_college_name" name = 'college' class="form-control" />
+                        <label class="form-label" for="id_college_name">College Name</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="id_register_number" name = 'regno' class="form-control" />
+                        <label class="form-label" for="id_register_number">Register Number</label>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="form-outline">
+                                <input type="text" id="id_course" name = 'course' class="form-control" />
+                                <label class="form-label" for="id_course">Course</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-outline">
+                                <input type="text" id="id_department" name = 'department' class="form-control" />
+                                <label class="form-label" for="id_department">Department</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-outline">
+                                <input type="text" id="id_year" name = 'year' class="form-control" />
+                                <label class="form-label" for="id_year">Year</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div id="id_photo" class="file-upload-wrapper">
+                                <h6>Photo</h6>
+                                <input type="file" name = 'photo' class="file-upload-input" data-accepted-extensions="image/*, .pdf" data-file-upload="file-upload">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="id_signature" class="file-upload-wrapper">
+                                <h6>Signature</h6>
+                                <input type="file" name = 'sign' class="file-upload-input" data-accepted-extensions="image/*, .pdf" data-file-upload="file-upload">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="photo" id="photo" />
+                    <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+ {% endblock %}

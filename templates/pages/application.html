@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/application.css' %}"/>
+{% endblock %}
+{% block content %}
+    {% include 'includes/header.html'%}
+    <div class="container">
+        <table id="application" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">S.No</th>
+                    <th class="th-sm">Name</th>
+                    <th class="th-sm">Register Number</th>
+                    <th class="th-sm">Email</th>
+                    <th class="th-sm">View Details</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in table %}
+                <tr class="{% cycle 'row1' 'row2' %}">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.registerNo }}</td>
+                    <td>{{ row.email }}</td>
+                    <td><a class="btn btn-danger" href="{% url 'details'  row.id %}">Details</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

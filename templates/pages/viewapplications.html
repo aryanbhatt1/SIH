@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/viewapplications.css' %}" />
+{% endblock %}
+{% block content %}
+    <nav class="navbar navbar-expand-lg">
+    <div class="container p-tp-10">
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            {% load static %}
+            <img src="{% static 'img/8218978.png' %}" height="60" alt="MDB Logo" loading="lazy"/>
+        </a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end"  id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'home'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'apply' %}">Apply</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'application' %}">Applications</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <img class='form-photo' src="{{ data.photo.url }}" alt="form-photo"/>
+                        <table class="table table-striped table-bordered" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <td>{{ data.name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Register Number</th>
+                                    <td>{{ data.registerNo }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Course</th>
+                                    <td>{{ data.course }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Department</th>
+                                    <td>{{ data.department }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Year</th>
+                                    <td>{{ data.year }}</td>
+                                </tr>
+                                <tr>
+                                    <th>College/University</th>
+                                    <td>{{ data.college }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone Number</th>
+                                    <td>{{ data.phone1 }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td>{{ data.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Father's Name</th>
+                                    <td>{{ data.father_name }}</td>
+                                </tr>
+                             <tr>
+                                    <th>Mother's Name</th>
+                                    <td>{{ data.mother_name }}</td>
+                                </tr>
+                              <tr>
+                                    <th>Signature</th>
+                                    <td><img class='form-photo' src="{{ data.signature.url }}"/> </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                </tr>
+                            </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+
+    {% block js %}
+    {% endblock %}
+{% endblock %}

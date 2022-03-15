@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+{% include 'includes/header.html' %}
+<div class="container-fluid image-container">
+        <div class="bigger">
+            <div class="smaller"><h1 class="text-img">Smart India Hackathon</h1><h3 class="text-img2">2022</h3></div>
+        </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="problem-statement">
+            <p class="note note-primary">
+                <strong>Problem Statement</strong>
+            </p>
+            "Every year lacks of trainees take entrance and annual exams under various schemes under DGT like CTS, CITS etc. These trainees are generally from poor background with below average skills to use computer system. It is found that in many admit cards generated , in place of photo , by mistake they upload their signature and thus they get a faulty admit card. A system may be developed using automatic analysis of uploaded documents to upload and place after AI correct documents at right place in the portal so that this problem of faulty admit cards may be completely resolved."
+        </div>
+    </div>
+</div>
+<div class="content about">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 30px;">Team Falcon</h1>
+        <div class="row about-card row-cols-1 row-cols-md-6 g-4">
+            {% for i in info_teams %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ i.photo.url }}" class="card-img-top" style="height: 245px !important;" alt="Hollywood Sign on The Hill"/>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ i.name }}</h5>
+                        <p class="card-text">
+                            {{ i.register_no }}<br>
+                            {{ i.batch }}<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% include 'includes/footer.html' %}
+{% endblock %}
+
